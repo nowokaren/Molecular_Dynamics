@@ -1,0 +1,18 @@
+#!/bin/sh
+### RunAg10
+#PBS -N RunAg10
+### Output files
+#PBS -o RunAg10.stdout
+#PBS -e RunAg10.stderr
+### Queue name
+#PBS -q default
+### Number of nodes
+#PBS -l nodes=1:ppn=64
+#PBS -V
+
+module load openmpi_eth
+module load intel2013
+
+cd $PBS_O_WORKDIR
+
+mpirun -np 64 /home/sebas/lammps-12Dec18/src/lmp_mpi < ZrCuAg.lmp.in

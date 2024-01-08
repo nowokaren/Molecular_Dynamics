@@ -1,0 +1,107 @@
+
+
+*******************************************************************************
+Fri Feb  7 10:50:45 2020
+
+
+FIT:    data read from 'log.lammps' u 1:2
+        format = x:z
+        #datapoints = 5001
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*x+b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 4.1255755036e+14   0.00e+00  2.04e+05    1.000000e+00   1.000000e+00
+   8 3.3188937342e+06  -7.83e-08  2.04e-03    2.120745e-06   1.699378e+03
+
+After 8 iterations the fit converged.
+final sum of squares of residuals : 3.31889e+06
+rel. change during last iteration : -7.83049e-13
+
+degrees of freedom    (FIT_NDF)                        : 4999
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 25.7665
+variance of residuals (reduced chisquare) = WSSR/ndf   : 663.912
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 2.12075e-06      +/- 2.524e-06    (119%)
+b               = 1699.38          +/- 0.7286       (0.04287%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b              -0.866  1.000 
+
+
+*******************************************************************************
+Fri Feb  7 10:51:28 2020
+
+
+FIT:    data read from 'log.lammps' u 1:2
+        format = x:z
+        x range restricted to [10281.4 : 505547.]
+        #datapoints = 4898
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*x+b+c*x^2
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Fri Feb  7 10:51:31 2020
+
+
+FIT:    data read from 'log.lammps' u 1:2
+        format = x:z
+        x range restricted to [10281.4 : 505547.]
+        #datapoints = 4898
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*x+b+c*x^2
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Fri Feb  7 10:51:47 2020
+
+
+FIT:    data read from 'log.lammps' u 1:2
+        format = x:z
+        x range restricted to [10281.4 : 505547.]
+        #datapoints = 4898
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x) = a*x+b+c*x*x
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c            
+   0 6.2531253940e+25   0.00e+00  6.52e+10    2.120745e-06   1.699378e+03   1.000000e+00
+   4 2.9611713416e+05  -2.58e-04  6.52e+06    2.120745e-06   1.699378e+03  -4.869385e-13
+
+After 4 iterations the fit converged.
+final sum of squares of residuals : 296117
+rel. change during last iteration : -2.58421e-09
+
+degrees of freedom    (FIT_NDF)                        : 4895
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 7.77778
+variance of residuals (reduced chisquare) = WSSR/ndf   : 60.4938
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 2.12075e-06      +/- 3.267e-06    (154.1%)
+b               = 1699.38          +/- 0.3622       (0.02131%)
+c               = -4.86939e-13     +/- 6.215e-12    (1276%)
+
+correlation matrix of the fit parameters:
+                a      b      c      
+a               1.000 
+b              -0.885  1.000 
+c              -0.971  0.774  1.000 

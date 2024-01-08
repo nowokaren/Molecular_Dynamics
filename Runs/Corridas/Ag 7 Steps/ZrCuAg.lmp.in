@@ -1,0 +1,99 @@
+# CuZr simulation 
+
+clear
+
+boundary        p p p
+units           metal
+atom_style      atomic
+
+read_data       Ag7.in.dat
+mass            1  91.22
+mass            2  63.55
+mass            3  107.87
+
+variable i equal 50000
+
+pair_style      eam/alloy
+pair_coeff      * * ZrCuAg.lammps.eam Zr Cu Ag
+
+timestep       0.001
+
+thermo_style    custom step temp ke pe etotal enthalpy press vol pxx pyy pzz pyz pxz pxy
+thermo          100
+
+fix             1 all npt temp 300 1700 0.2 iso 0.0 0.0 0.2
+run     7000
+unfix 1
+
+fix             1 all npt temp 1700 1700 0.2 iso 0.0 0.0 0.2
+run     7000
+unfix 1
+
+dump            melt all custom 100000 dumpAg7mix.lammpstrj id type x y z
+
+fix             1 all npt temp 1700 1000 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 1000 1000 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 1000 900 0.2 iso 0.0 0.0 0.2 
+run     50000
+unfix 1
+
+fix             1 all npt temp 900 900 0.2 iso 0.0 0.0 0.2 
+run     50000
+unfix 1
+
+fix             1 all npt temp 900 800 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 800 800 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 800 700 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 700 700 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 700 700 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 700 600 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 600 500 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 500 500 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 500 400 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 400 400 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 400 300 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+fix             1 all npt temp 300 300 0.2 iso 0.0 0.0 0.2
+run     50000
+unfix 1
+
+
+

@@ -1,0 +1,50 @@
+clear
+
+boundary        p p p
+units           metal
+atom_style      atomic
+
+read_data       Ag10.in.dat
+mass            1  91.22
+mass            2  63.55
+mass            3  107.87
+
+
+
+pair_style      eam/alloy
+pair_coeff      * * ZrCuAg.lammps.eam Zr Cu Ag
+
+timestep       0.002
+
+thermo_style    custom step time temp ke pe etotal enthalpy press vol pxx pyy pzz pyz pxz pxy
+thermo          200
+
+#Equilibracioan 1.5 ns
+fix             1 all npt temp 1900 1900 0.2 iso 0.0 0.0 0.2
+run    375000
+unfix 1
+
+timestep	0.001
+fix             2 all npt temp 1900 1900 0.2 iso 0.0 0.0 0.2
+run    375000
+unfix 2
+dump            melt all custom 25000 dumpAg10.lammpstrj id type x y z vz vy vz 
+
+timestep	0.002
+
+fix             3 all npt temp 1900 1000 0.2 iso 0 0 0.2
+run 450000
+
+unfix 3
+
+dump_modify     melt every 250000
+
+fix		4 all npt temp 1000 600 0.2 iso 0 0 0.2
+run 2000000
+
+unfix 4
+
+dump_modify     melt every 25000
+
+fix		5 all npt temp 600 300 0.2 iso 0 0 0.2
+run 150000
